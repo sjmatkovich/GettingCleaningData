@@ -35,13 +35,13 @@ mergeset$activ <- NULL
 mergeset_tb <- as_tibble(mergeset, .name_repair = "universal")
 
 # re-order large training+test dataset variables to bring subject and activity variables first, and delete activity number column
-# the 'select' function used in this way will also attach 'subj' and 'activ_desc' to subsequent subsetting activities
 mergeset_tb <- select(mergeset_tb, activ_desc, subj, everything())
 
 # select only those variables that represent mean or std, according to the presence of mean() or std() in their column names. The subject and activ_desc columns will be retained for future grouping
 means <- mergeset_tb[,grep("mean..",colnames(mergeset_tb),fixed=TRUE)]
 stds <- mergeset_tb[,grep("std..",colnames(mergeset_tb),fixed=TRUE)]
-means_stds <- cbind(means, stds)
+id <- select(mergeset_tb, activ_desc, subj)
+means_stds <- cbind(id, means, stds)
 
 # group the limited data set according to activity and subject, then calculate averages of variables in the limited data set according to activity and subhect
 means_stds_avgs <- means_stds %>% group_by(activ_desc, subj) %>% summarize_all(mean)
