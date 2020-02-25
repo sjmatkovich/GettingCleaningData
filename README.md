@@ -3,8 +3,11 @@
 Students were asked to complete the exercise described below.  This GitHub repository contains a file titled run_analysis.R that performs the requested steps. The R script requires that the files and folder structure from the UCI HAR Dataset zip archive, listed in the original assignment instructions below, have been unpacked and are present in the R working directory. There should be four text files (README.txt, activity_labels.txt, features.txt, features_info.txt), and two folders titled 'test' and 'train'. Upon execution, the R script will produce a tidy data set titled 'final_assignment_tidy_data.txt'. In accordance with the assignment directions, the tidy data set is comprised of 180 observations of 79 variables. These observations are averages of the 66 UCI HAR Dataset variables containing 'mean()' or 'std()' in their titles, for each of 30 subjects, multiplied by 6 possible activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). This same tidy data set has been uploaded to the Coursera website and can be downloaded and evaluated in R as follows:
 
 > fileURL = "https://coursera-assessments.s3.amazonaws.com/assessments/1582595185607/d995ac91-0a6b-4533-9bb6-717f730f00f1/final_assignment_tidy_data.txt"
+>
 > download.file(fileURL, destfile="SJM_final_assignment_tidy_data.txt", method="curl")
+>
 > data <- read.table(file="SJM_final_assignment_tidy_data.txt", header=TRUE)
+>
 > View(data)
 
 
